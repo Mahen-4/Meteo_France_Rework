@@ -1,0 +1,32 @@
+{
+  "name": "meteo_france_rework",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.20",
+    "@mui/x-charts": "^6.18.3",
+    "@reduxjs/toolkit": "^2.0.1",
+    "axios": "^1.6.2",
+    "next": "14.0.3",
+    "pigeon-maps": "^0.21.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^4.12.0",
+    "react-redux": "^9.0.2",
+    "sass": "^1.69.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  }
+}
