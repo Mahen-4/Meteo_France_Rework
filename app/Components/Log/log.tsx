@@ -7,10 +7,21 @@ import LogOut from "./logOut"
 export default async function Log(){
 
     const session =  await getServerSession(authOptions)
-
     return(
-        <div>
-            {session ? (<div><h1>Logged in</h1><LogOut/></div>) : (<Link href="/authForm">Log In</Link>)}
+        <div className="logs">
+            {session ? 
+                (
+                    <div>
+                        <div className="userDetails">
+                            <img src={session.user?.image as string} alt="" width={50} height={50}/>
+                            <h1>{session.user?.name}</h1>
+                            <LogOut/>
+                        </div>
+                    </div>
+                ) : 
+                (
+                    <Link href="/authForm">Log In</Link>
+                )}
         </div>
     )
 }

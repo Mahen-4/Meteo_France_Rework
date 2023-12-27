@@ -1,17 +1,16 @@
 'use client'
-import { useRouter } from 'next/router'
 import React from 'react'
 import { useAppSelector } from '@/app/redux/store'
 import { BarChart } from '@mui/x-charts/BarChart';
 import OneDayDetails from '@/app/Components/OneDayDetails/oneDayDetails';
 import { LineChart } from '@mui/x-charts';
 import Image from 'next/image';
-import { getFormatedHour, getDateData2 } from '@/app/Utils/data_hours_handler';
+import { getFormatedHour, getDateData2,getFormatedDateLong } from '@/app/Utils/data_hours_handler';
 import { MdOutlineVisibility } from "react-icons/md";
 
 export default function DayStat({ params }: { params: { day: string } }){
     const weather_data:any = useAppSelector((state) => state.weatherReducer.value)
-    const day :any = parseInt(params.day)
+    const day :any = params.day
     const [dayWeather, setDayWeather] = React.useState<any>([])
     const [dayHours, setDayHours] = React.useState<string[]>([])
 
@@ -42,6 +41,7 @@ export default function DayStat({ params }: { params: { day: string } }){
                             }
                         </div>
                         <div className='charts'>
+                            <h1>{day ? getFormatedDateLong(day): "NULL"}</h1>
                              <LineChart   
                                 width={800}
                                 height={300}

@@ -1,0 +1,55 @@
+.dayDetailsByHour{
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+    justify-content: space-between;
+    .oneDayDetails-container{
+        background-color: $principalColor;
+        box-shadow: $boxShadow;
+        width: 20%;
+        border-radius: $borderRadiusVal;
+        margin-top: -4%;
+        .oneDayDetails{
+            color: white;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid white;
+            h3{
+                font-weight: bold;
+            }
+        }
+        .oneDayDetails:last-child{
+            border: none;
+        }
+    }
+    .charts{
+        display: flex;
+        flex-direction: column;
+        gap: 5%;
+        justify-content: center;
+        align-items: center;
+        height: 65vh;
+        margin-top: -8%;
+        color: white;
+        .css-q3wnbe-MuiResponsiveChart-container  {
+            background-color: $principalColor;
+            border-radius: $borderRadiusVal;
+            box-shadow: $boxShadow;
+            line{
+                stroke: white
+            }
+            tspan{
+                fill:white
+            }
+          }
+    }
+    .lastDetails{
+        background-color: $principalColor;
+        box-shadow: $boxShadow;
+        border-radius: $borderRadiusVal;
+        color: white;
+        padding: 10px;
+    }
+    
+   
+}

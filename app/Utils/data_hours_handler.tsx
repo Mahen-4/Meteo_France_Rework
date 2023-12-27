@@ -3,6 +3,21 @@ export const getFormatedHour = (dayDT:number)=>{
     const tempTime:string = `${tempDate}h`
     return tempTime
 }
+export const getFormatedDateLong = (dayDT:number) =>{
+    const timestamp: number = dayDT * 1000; 
+    const date: Date = new Date(timestamp);
+
+    const options: Intl.DateTimeFormatOptions = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC', 
+    };
+
+    const formattedDate: string = date.toLocaleDateString('fr-FR', options);
+    return formattedDate
+}
 
 export const getDateData = async(allData: any, dateDT_TXT: string) => {
     const date = dateDT_TXT ? dateDT_TXT.split(' ')[0] : null
