@@ -1,4 +1,4 @@
-import { getFormatedHour } from "@/app/Functions/data_hours_handler"
+import { getFormatedHour } from "@/app/Utils/data_hours_handler"
 
 export default function OneDayDetails(props:{day:any}){
     const tempTime  = getFormatedHour(props.day.dt)

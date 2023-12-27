@@ -6,25 +6,26 @@ import { BarChart } from '@mui/x-charts/BarChart';
 import OneDayDetails from '@/app/Components/OneDayDetails/oneDayDetails';
 import { LineChart } from '@mui/x-charts';
 import Image from 'next/image';
-import { getFormatedHour, getDateData2 } from '@/app/Functions/data_hours_handler';
+import { getFormatedHour, getDateData2 } from '@/app/Utils/data_hours_handler';
 import { MdOutlineVisibility } from "react-icons/md";
 
 export default function DayStat({ params }: { params: { day: string } }){
     const weather_data:any = useAppSelector((state) => state.weatherReducer.value)
     const day :any = parseInt(params.day)
     const [dayWeather, setDayWeather] = React.useState<any>([])
-    const [dayHours, setDayHours] = React.useState<any>([])
-    
+    const [dayHours, setDayHours] = React.useState<string[]>([])
+
     React.useEffect(()=>{
+        
         const getWeatherDay = async () => {
             const fetchWeatherData = await getDateData2(weather_data,day)
             setDayWeather(fetchWeatherData);
             const dayhoursConverted = fetchWeatherData.map((oneTime:any)=>{
                 return getFormatedHour(oneTime.dt)
             })
-            setDayHours(dayhoursConverted)   
-        }
-        getWeatherDay()
+            setDayHours(dayhoursConverted)  
+        }       
+        getWeatherDay()      
     },[])
 
 
@@ -41,19 +42,18 @@ export default function DayStat({ params }: { params: { day: string } }){
                             }
                         </div>
                         <div className='charts'>
-                            <LineChart   
-                                xAxis={[{scaleType: 'point', data: dayHours}]}
+                             <LineChart   
+                                width={800}
+                                height={300}
                                 series={[{data: dayWeather.map((dayW: any) => parseFloat((dayW.wind.speed* 3.6).toFixed(1))), label: 'Vitesse du vent (km/h)'},]}
+                                xAxis={[{scaleType: 'point', data: dayHours }]}
+                            />
+                             <BarChart 
                                 width={800}
                                 height={300}
-                                
-                            />
-                            <BarChart 
-                                xAxis={[{data: dayHours,scaleType: 'band',},]}
                                 series={[{data: dayWeather.map((dayW: any) => ((dayW.pop)*100)), label: 'Précipitations (%)'},]}
-                                width={800}
-                                height={300}
-                            />
+                                xAxis={[{scaleType: 'band', data: dayHours}]}
+                            /> 
                         </div>
                         <div style={{ textAlign: "center"}} className='lastDetails'>
                             <div style={{display: "flex"}}>

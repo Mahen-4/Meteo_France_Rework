@@ -1,6 +1,6 @@
 export const getFormatedHour = (dayDT:number)=>{
     const tempDate = new Date(dayDT * 1000).toLocaleTimeString('fr-FR', {hour: 'numeric', minute: 'numeric' })
-    const tempTime  = `${tempDate}h`
+    const tempTime:string = `${tempDate}h`
     return tempTime
 }
 

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FormEvent } from "react"
-import { getFullData } from "@/app/Functions/apiCalls"
+import { getFullData } from "@/app/Utils/apiCalls"
 import { useDispatch } from "react-redux"
 import { appDispatch } from "@/app/redux/store"
 import { addData } from "@/app/redux/slices/weather-slice"
@@ -38,13 +38,13 @@ export default function NavBar(){
         }
     }
 
-   React.useEffect(()=>{
-    ville !== null && getData()
-   },[ville])
+    React.useEffect(()=>{
+        ville !== null && getData()
+    },[ville])
 
-   React.useEffect(()=>{
-     getData()
-   },[])
+    React.useEffect(()=>{
+        getData()
+    },[])
 
    const messageStyle = {
         backgroundColor: err ? "rgb(192 9 9)" : "transparant",

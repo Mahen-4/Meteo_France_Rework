@@ -15,7 +15,7 @@ export const getFullData = async(city: string) =>{
         url:`https://api.openweathermap.org/data/2.5/forecast?lat=${dataLatLon.data[0].lat}&lon=${dataLatLon.data[0].lon}&appid=${process.env.NEXT_PUBLIC_API_KEY_OW}&units=metric`,
         headers: { }
       };
-
+      
       const data = await axios.request(config2)
       return data
       
