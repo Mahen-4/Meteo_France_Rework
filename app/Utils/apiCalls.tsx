@@ -20,3 +20,8 @@ export const getFullData = async(city: string) =>{
       return data
       
 }
+
+export async function getFavorites(){
+  const response = await axios.get('/api/addFav');
+  return response.data.res;
+}

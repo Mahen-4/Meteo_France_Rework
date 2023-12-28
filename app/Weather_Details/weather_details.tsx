@@ -1,3 +1,4 @@
+'use client'
 import React from "react"
 import SimpleMap from "./Map/map"
 import FiveDays from "./FiveDays/fiveDays"
