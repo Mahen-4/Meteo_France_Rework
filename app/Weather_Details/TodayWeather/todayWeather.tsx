@@ -1,10 +1,11 @@
+import Fav from "@/app/Components/favorite/fav";
 import Link from "next/link";
 import { WiHumidity, WiRain, WiStrongWind } from "react-icons/wi";
 
 export default function TodayWeather(props:{dayWeather: any, city: string}){
     return(
         <div className="todayWeather">
-            <h1><span>{props.city}</span> Aujourd'hui</h1>
+            <h1><span>{props.city}</span> Aujourd'hui <Fav city={props.city}/></h1>
             <div className="temp">
                 <img src={`https://openweathermap.org/img/wn/${props.dayWeather.weather[0].icon}@2x.png`} alt="iconToday" />
                 <p>{(props.dayWeather.main.temp_max).toFixed(1)}°C</p> 

@@ -46,7 +46,7 @@ export default function NavBar(){
         getData()
     },[])
 
-   const messageStyle = {
+    const messageStyle = {
         backgroundColor: err ? "rgb(192 9 9)" : "transparant",
         width: err ? "20vh" : "0vh",
         padding: err ? "10px" : "0px"

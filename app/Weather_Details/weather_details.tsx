@@ -27,7 +27,6 @@ export default function Weather_details(props:{city:string}){
                     {
                       datas.list.map((day: object, index: number) =>{
                         if(dayToGet.includes(index)){
-                          console.log(day)
                           return(
                             <FiveDays days={day} key={index} temp_mini={datas.list[index - 3].main.temp_min} /> 
                           )

@@ -30,9 +30,9 @@ model Account {
 
 model SavedPlace {
   id           String   @id @default(cuid())
-  userId       String
+  userEmail    String
   place        String 
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userEmail_  User     @relation(fields: [userEmail], references: [email], onDelete: Cascade)
 }
 
 model Session {
