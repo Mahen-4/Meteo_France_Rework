@@ -1,14 +1,12 @@
 .dayDetailsByHour{
     display: flex;
     align-items: center;
-    margin-top: 5%;
     justify-content: space-between;
     .oneDayDetails-container{
         background-color: $principalColor;
         box-shadow: $boxShadow;
         width: 20%;
         border-radius: $borderRadiusVal;
-        margin-top: -4%;
         .oneDayDetails{
             color: white;
             display: flex;
@@ -29,7 +27,6 @@
         justify-content: center;
         align-items: center;
         height: 65vh;
-        margin-top: -8%;
         color: white;
         .css-q3wnbe-MuiResponsiveChart-container  {
             background-color: $principalColor;

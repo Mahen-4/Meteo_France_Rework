@@ -41,12 +41,14 @@ export async function GET(){
         },
       },
       select: {
+        id: true,
         place: true
       }
     })
-    console.log(query)
     return NextResponse.json({res : query})
   } catch (error) {
     return NextResponse.json({err : error})
   }
 }
+
+

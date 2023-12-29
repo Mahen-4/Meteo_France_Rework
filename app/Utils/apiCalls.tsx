@@ -22,6 +22,6 @@ export const getFullData = async(city: string) =>{
 }
 
 export async function getFavorites(){
-  const response = await axios.get('/api/addFav');
+  const response = await axios.get("http://localhost:3000/api/handleFav");
   return response.data.res;
 }

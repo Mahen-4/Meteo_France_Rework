@@ -9,6 +9,12 @@
     border-radius: $borderRadiusVal;
     color: white;
     box-shadow: $boxShadow;
+    h1{
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        gap: 4%;
+    }
     span{
         
         font-weight: bold;
