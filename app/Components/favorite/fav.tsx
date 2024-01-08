@@ -5,8 +5,6 @@ import { RiStarSFill } from "react-icons/ri";
 import { getFavorites } from "@/app/Utils/apiCalls"
 import axios from "axios"
 import React from "react"
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/app/Utils/auth";
 import { Toaster, toast } from 'sonner'
 
 export default function Fav(props: { city: string }) {

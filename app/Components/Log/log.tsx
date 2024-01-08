@@ -16,6 +16,7 @@ export default async function Log(){
                             <img src={session.user?.image as string} alt="" width={50} height={50}/>
                             <h1>{session.user?.name}</h1>
                             <LogOut/>
+                            <Link href="/favorites_list">Favorites</Link>
                         </div>
                     </div>
                 ) : 

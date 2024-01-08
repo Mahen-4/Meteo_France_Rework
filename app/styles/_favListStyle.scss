@@ -1,0 +1,17 @@
+.favList{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .favCard{
+        height: 200px;
+        width: 10%;
+        background-color: $principalColor;
+        border-radius: 12px;
+        margin-top: 5%;
+        text-align: center;
+        padding: 10px;
+        box-shadow: $boxShadow;
+        color: white;
+    }
+}
