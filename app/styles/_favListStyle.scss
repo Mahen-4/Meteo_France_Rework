@@ -1,17 +1,24 @@
 .favList{
+    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
     .favCard{
+        position: relative;
         height: 200px;
         width: 10%;
         background-color: $principalColor;
-        border-radius: 12px;
+        border-radius: $borderRadiusVal;
         margin-top: 5%;
         text-align: center;
         padding: 10px;
         box-shadow: $boxShadow;
         color: white;
+        transition: .5s;
+        &:hover{
+            cursor: pointer;
+            box-shadow: $boxShadowHover;
+        }
     }
 }
