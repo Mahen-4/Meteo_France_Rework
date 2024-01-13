@@ -36,3 +36,19 @@
 
     }
 }
+
+@media only screen and (max-width: 767px) {
+    .fiveDays-container{
+        flex-wrap: wrap;
+        background-color: transparent;
+        box-shadow: none;
+        width: 95%;
+        .oneDay-container{
+            margin-bottom: 5%;
+            background-color: #005891;
+            box-shadow: $boxShadow;
+            border-radius: $borderRadiusVal;
+            padding: 4px;
+        }
+    }
+  }

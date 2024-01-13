@@ -33,6 +33,7 @@
         width: 100%;
         margin-top: 5%;
         text-align: center;
+        padding-bottom: 5%;
         .oneDetail{
             h5{
                 font-size: 15px;
@@ -48,4 +49,13 @@
             }
         }
     }
+    a{
+        @include actionBtn;
+    }
 }
+
+@media only screen and (max-width: 767px) {
+    .todayWeather{
+        width: 100%;
+    }
+  }

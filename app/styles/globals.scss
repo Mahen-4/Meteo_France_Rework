@@ -28,16 +28,33 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    
+    .map{
+        width: 65%;
+        height: 45vh;
+        > div{
+            border-radius: $borderRadiusVal;
+        }
+    }
 }
 a{
     color: white;
     text-decoration: none;
 }
-.map{
-    width: 65%;
-    height: 45vh;
-    > div{
-        border-radius: $borderRadiusVal;
-    }
-}
 
+@media only screen and (max-width: 767px) {
+
+    body{
+        height:100%;
+        
+    }
+    .container{
+        flex-direction: column;
+        margin-top: 5%;
+        .map{
+            width: 100%;
+            order: 3;
+        }
+    }
+
+  }
