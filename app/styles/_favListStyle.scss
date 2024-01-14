@@ -22,3 +22,12 @@
         }
     }
 }
+@media only screen and (max-width: 767px) {
+    .favList{
+        flex-direction: column;
+        align-items: center;
+        .favCard{
+            width:50%;
+        }
+    }
+  }

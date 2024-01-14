@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import NavBar from './Components/Navbar/navBar'
+import Footer from './Components/Footer/footer'
 import { ReduxProvider } from './redux/provider'
 import '@/app/styles/globals.scss'
 import Log from './Components/Log/log'
+import FooterComp from './Components/Footer/footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -24,6 +26,7 @@ export default function RootLayout({
             <NavBar />
             <Log />
             {children}
+            <FooterComp />
           </ReduxProvider>
         </body>
       

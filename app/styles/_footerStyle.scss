@@ -1,0 +1,41 @@
+footer{
+    width: 100%;
+    height: 15vh;
+    background-color: $principalColor;
+    position: relative;
+    bottom: 0px;
+    margin: 2% 0% 0% 0%;
+    border-top-left-radius: $borderRadiusVal;
+    border-top-right-radius: $borderRadiusVal;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    
+    gap: 5%;
+    color: white;
+    .socialM{
+        display: flex;
+        align-items: center;
+        svg{
+            transition: .3s ease-in-out;
+            &:hover{
+                color: rgb(185, 185, 185);
+                cursor: pointer;
+            }
+        }
+        p{
+            padding: 0 5px 0 5px;
+        }
+    }
+    .policy{
+        text-align: center;
+        a{
+            transition: .3s ease-in-out;
+            &:hover{
+                color: rgb(185, 185, 185);
+            }
+        }
+    }
+    
+}

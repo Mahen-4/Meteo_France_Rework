@@ -6,6 +6,7 @@
 @import '_dayDetailsStyle.scss';
 @import '_authLogsStyle.scss';
 @import '_favListStyle.scss';
+@import '_footerStyle.scss';
 
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
@@ -17,10 +18,9 @@
     margin:0 ;
 }
 body{
-    margin: 2%;
+    margin: 2% 2% 0% 2%;
     background: linear-gradient($principalColor, #C5E8FF);
     background-repeat: no-repeat;
-    height: 100vh;
     
 }
 .container{
