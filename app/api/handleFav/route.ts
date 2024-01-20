@@ -33,22 +33,25 @@ export async function POST(request:any){
 
 export async function GET(){
   const session = await getServerSession(authOptions)
-  try {
-    const query = await prisma.savedPlace.findMany({
-      where:{
-        userEmail_:{
-          email: session?.user?.email as any
+  
+    try {
+      const query = await prisma.savedPlace.findMany({
+        where:{
+          userEmail_:{
+            email: session?.user?.email as any
+          },
         },
-      },
-      select: {
-        id: true,
-        place: true
-      }
-    })
-    return NextResponse.json({res : query})
-  } catch (error) {
-    return NextResponse.json({err : error})
-  }
+        select: {
+          id: true,
+          place: true
+        }
+      })
+      return NextResponse.json({res : query})
+    } catch (error) {
+      return NextResponse.json({err : error})
+    }
+
+  
 }
 
 

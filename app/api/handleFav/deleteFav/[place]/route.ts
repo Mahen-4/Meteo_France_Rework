@@ -6,6 +6,9 @@ import { authOptions } from "@/app/Utils/auth"
 export async function DELETE( req: Request,{ params }: { params: { place: string } }){
     const res = params.place
     const session = await getServerSession(authOptions)
+    if(session == null){
+      return NextResponse.json({ error: 'Not connected' }, { status: 401 })
+  }else{
     try {
       await prisma.savedPlace.deleteMany({
         where:{
@@ -19,6 +22,5 @@ export async function DELETE( req: Request,{ params }: { params: { place: string
     } catch (error) {
       return NextResponse.json({err : error})
     }
-  
-    
-  }
+  } 
+}

@@ -1,5 +1,5 @@
 .logs {
-    padding-bottom: 10px;
+    padding-bottom: 2%;
     color: white;
     font-size: 10px;
     button{
@@ -24,7 +24,7 @@
     gap: 10px;
     align-items: center;
     margin-top: 20%;
-
+    padding-bottom: 12%;
     button{
         @include actionBtn;
         display: flex;

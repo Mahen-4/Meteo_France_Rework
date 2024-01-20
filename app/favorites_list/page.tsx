@@ -1,5 +1,8 @@
+import { redirect } from "next/navigation"
 import { getFavorites, getFullData } from "../Utils/apiCalls"
+import { authOptions } from "../Utils/auth"
 import ChangeCityBtn from "./changeCityBtn"
+import { getServerSession } from "next-auth"
 
 export async function favorites_weather(favs: Array<any>) {
   const weatherPromises = favs.map(async (fav: any) => {
@@ -12,11 +15,15 @@ export async function favorites_weather(favs: Array<any>) {
 
 export default async function Favorites_list() {
    
+  const session = await getServerSession(authOptions)  
+
+
     const favData = getFavorites()
     const [favorites] = await Promise.all([favData])
 
     const favWeather = await favorites_weather(favorites)
     return (
+      session == null ? redirect('/') :
       <div className="favList">
         {
             favorites.map((fav:any, index:number) => 

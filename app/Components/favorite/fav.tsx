@@ -36,7 +36,7 @@ export default function Fav(props: { city: string }) {
               setTemp(!temp)
               toast.success('Favorie supprimé !')
           } catch (error) {
-            toast.error('Erreur inconnu')
+            toast.error('Vous devez être connecté pour avoir des favories')
           }        
         }}/>
 
