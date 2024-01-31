@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
 
-
+test.beforeEach(async({ page })=>{
+  await page.goto("/")
+})
 test.describe("MSG Tests", ()=>{
-  test.beforeEach(async({ page })=>{
-    await page.goto("/")
-  })
+  
   test('Err MSG', async ({ page }) => {
     await page.getByPlaceholder('Rechercher une ville').click();
     await page.getByPlaceholder('Rechercher une ville').fill('Napolie');
@@ -19,3 +19,12 @@ test.describe("MSG Tests", ()=>{
 })
 
 
+test.describe("LOGS Tests", ()=>{
+  test('Log IN', async ({ page }) => {
+    await page.getByRole('link', { name: 'Log In' }).click();
+    await expect(page).toHaveURL("/authForm")
+    await page.getByRole('button', { name: 'GitHub' }).click();
+    await expect(page).toHaveURL("/")
+  });
+   
+})
