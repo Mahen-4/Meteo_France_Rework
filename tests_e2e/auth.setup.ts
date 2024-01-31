@@ -2,10 +2,13 @@
 // const authFile = 'playwright/.auth/user.json';
 
 // setup('authenticate', async ({ page }) => {
+
+//   const username = process.env.AUTH_USERNAME || 'default_username';
+//   const password = process.env.AUTH_PASSWORD || 'default_password';
 //   // Perform authentication steps. Replace these actions with your own.
 //   await page.goto('https://github.com/login');
-//   await page.getByLabel('Username or email address').fill(process.env.);
-//   await page.getByLabel('Password').fill(process.env.);
+//   await page.getByLabel('Username or email address').fill(username);
+//   await page.getByLabel('Password').fill(password);
 //   await page.getByRole('button', { name: 'Sign in' }).click();
 //   // Wait until the page receives the cookies.
 //   //
