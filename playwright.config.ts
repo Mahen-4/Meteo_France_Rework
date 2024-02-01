@@ -26,7 +26,7 @@ export default defineConfig({
   webServer: {
     command: 'npm run build',
     url: 'http://localhost:3000/',
-    timeout: 120 * 1000 * 5
+    timeout: 240 * 1000 * 5
   },
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
