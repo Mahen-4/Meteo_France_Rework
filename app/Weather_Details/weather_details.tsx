@@ -12,9 +12,10 @@ export default function Weather_details(props:{city:string}){
 
     React.useEffect(()=>{
       setDatas(weatherData)
+      console.log(weatherData)
     },[weatherData])
 
-    const dayToGet = [8,16,24,32,39]
+    const dayToGet = [8,16,24,32]
 
     return (
         <main>
@@ -28,6 +29,7 @@ export default function Weather_details(props:{city:string}){
                     {
                       datas.list.map((day: object, index: number) =>{
                         if(dayToGet.includes(index)){
+                          dayToGet.splice(index,1)
                           return(
                             <FiveDays days={day} key={index} temp_mini={datas.list[index - 3].main.temp_min} /> 
                           )

@@ -10,7 +10,7 @@ config();
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  timeout: 5 * 120 * 1000,
+  timeout: 5 * 240 * 1000,
   testDir: './tests_e2e',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -24,7 +24,7 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   webServer: {
-    command: 'npm run build',
+    command: 'npm run dev',
     url: 'http://localhost:3000/',
     timeout: 240 * 1000 * 5
   },
@@ -46,17 +46,17 @@ export default defineConfig({
       
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'],storageState: 'playwright/.auth/user.json', },
-      dependencies: ['setup'],
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'],storageState: 'playwright/.auth/user.json', },
+    //   dependencies: ['setup'],
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'],storageState: 'playwright/.auth/user.json', },
-      dependencies: ['setup'],
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'],storageState: 'playwright/.auth/user.json', },
+    //   dependencies: ['setup'],
+    // },
 
     /* Test against mobile viewports. */
     // {

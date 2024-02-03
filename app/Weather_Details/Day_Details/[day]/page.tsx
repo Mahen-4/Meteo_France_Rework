@@ -55,7 +55,7 @@ export default function DayStat({ params }: { params: { day: string } }){
                                 xAxis={[{scaleType: 'band', data: dayHours}]}
                             /> 
                         </div>
-                        <div style={{ textAlign: "center"}} className='lastDetails'>
+                        <div className='lastDetails'>
                             <div style={{display: "flex"}}>
                                 <div>
                                     <Image src="/icon/sunrise.png" alt='' width={150} height={150}/>

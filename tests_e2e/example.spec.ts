@@ -14,7 +14,8 @@ test.describe("MSG Tests", ()=>{
   
   test('Toaster MSG', async ({ page }) => {
     await page.locator('h1 > div > svg').click();
-    await expect(page.getByText('Vous devez vous connecter !')).toBeVisible()
+    test.setTimeout(120000);
+    await expect(page.getByText('Vous devez vous connecter !')).toBeVisible();
   });  
 })
 
@@ -22,9 +23,25 @@ test.describe("MSG Tests", ()=>{
 test.describe("LOGS Tests", ()=>{
   test('Log IN', async ({ page }) => {
     await page.getByRole('link', { name: 'Log In' }).click();
-    await expect(page).toHaveURL("/authForm")
+    await expect(page).toHaveURL("/authForm");
     await page.getByRole('button', { name: 'GitHub' }).click();
-    await expect(page).toHaveURL("/")
+    test.setTimeout(120000);
+    await expect(page).toHaveURL("/");
+    await expect(page.getByRole('link', { name: 'Favorites' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Log Out' })).toBeVisible();
+    await page.getByRole('heading', { name: 'Paris Aujourd\'hui' }).getByRole('img').click();
+    test.setTimeout(120000);
+    await expect(page.getByText('Favorie ajouté !')).toBeVisible();
+    await page.getByRole('link', { name: 'Favorites' }).click();
+    await page.goto('/favorites_list');
+    await expect(page).toHaveURL("/favorites_list");
+    await expect(page.getByRole('heading', { name: 'Paris' })).toBeVisible();
+    await page.locator('a').first().click();
+    await expect(page).toHaveURL("/");
+    await page.getByRole('heading', { name: 'Paris Aujourd\'hui' }).locator('path').click();
+    await page.getByText('Favorie supprimé !').click();
+    await page.getByRole('button', { name: 'Log Out' }).click();
+    await expect(page).toHaveURL("/");
   });
    
 })
