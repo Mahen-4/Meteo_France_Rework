@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: your_username
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: your_database_name
+    ports:
+      - "5432:5432"
+  
+  nextjs_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs_ww_container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    command: >
+      sh -c "until nc -z db 5432; do sleep 1; done && npx prisma db push && npx prisma generate && npm run dev"

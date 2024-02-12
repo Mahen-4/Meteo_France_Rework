@@ -8,7 +8,7 @@ export default function Accueil(){
 
     const cityTaken:any = useAppSelector((state) => state.cityTakenReducer.value)
     const [ville, setVille] = React.useState<string>("")
-
+    console.log(process.env.DATABASE_URL)
     React.useEffect(()=>{
         cityTaken !== null && setVille(cityTaken)
     },[cityTaken])
