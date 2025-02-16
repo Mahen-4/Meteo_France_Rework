@@ -15,9 +15,10 @@ export default function Fav(props: { city: string }) {
       const fetchData = async () => {
         try {
           const result = await getFavorites();
-          setFavorites(result);
+          setFavorites(result || []);
         } catch (error) {
           console.error('Error fetching favorites:', error);
+          setFavorites([]);
         }
       };
   
@@ -28,31 +29,27 @@ export default function Fav(props: { city: string }) {
       <div>
         <Toaster position="top-right" richColors  />
         {
-        favorites.filter((e:any) => e.place === props.city).length > 0 ? 
-
-        <RiStarSFill onClick={ async()=>{
-          try {
-              await axios.delete(`/api/handleFav/deleteFav/${props.city}`)
-              setTemp(!temp)
-              toast.success('Favorie supprimé !')
-          } catch (error) {
-            toast.error('Vous devez être connecté pour avoir des favories')
-          }        
-        }}/>
-
-        : 
-
-        <RiStarSLine onClick={ async()=>{
-          try {
-              await axios.post('/api/handleFav',{cityFav: props.city})
-              setTemp(!temp)
-              toast.success('Favorie ajouté !')
-          } catch (error) {
-            toast.error('Vous devez vous connecter !')
-          }        
-        }}/>
-        
-        
+            (favorites ?? []).some((e:any) => e.place === props.city) ? (
+                <RiStarSFill onClick={async () => {
+                    try {
+                        await axios.delete(`/api/handleFav/deleteFav/${props.city}`);
+                        setTemp(!temp);
+                        toast.success('Favori supprimé !');
+                    } catch (error) {
+                        toast.error('Vous devez être connecté pour avoir des favoris');
+                    }
+                }} />
+            ) : (
+                <RiStarSLine onClick={async () => {
+                    try {
+                        await axios.post('/api/handleFav', { cityFav: props.city });
+                        setTemp(!temp);
+                        toast.success('Favori ajouté !');
+                    } catch (error) {
+                        toast.error('Vous devez vous connecter !');
+                    }
+                }} />
+            )
         }
       </div>
     );

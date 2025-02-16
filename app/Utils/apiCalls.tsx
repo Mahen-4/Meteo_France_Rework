@@ -22,6 +22,13 @@ export const getFullData = async(city: string) =>{
 }
 
 export async function getFavorites(){
-  const response = await axios.get("http://localhost:3000/api/handleFav");
+  try {
+    const response = await axios.get("http://localhost:3000/api/handleFav");
+     return response.data.res || [];
+  }catch (error) {
+        console.error("Error fetching favorites:", error);
+        return [];  // Return an empty array on error
+    }
+  
   return response.data.res;
 }
